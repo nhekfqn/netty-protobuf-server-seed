@@ -1,0 +1,25 @@
+package com.nhekfqn.sample.server.proto;
+
+message BaseMessage {
+    required MessageType messageType = 1;
+
+    optional Ping ping = 2;
+    optional Pong pong = 3;
+}
+
+enum MessageType {
+    ping = 1;
+    pong = 2;
+}
+
+message Ping {
+    optional MessageType messageType = 1 [default = ping];
+
+    required string userId = 2;
+}
+
+message Pong {
+    optional MessageType messageType = 1 [default = pong];
+
+    required int32 n = 2;
+}
